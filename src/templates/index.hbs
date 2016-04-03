@@ -1,0 +1,53 @@
+---
+layout: base.hbs
+---
+
+<div class="container">
+
+	<h1>Hello world!</h1>
+
+	<div id="my-app">
+		Loading...
+	</div>
+	
+</div>
+
+<script id="test-template" type="text/x-handlebars-template">		
+	<p>I am your template now!</p>
+	\{{#each names}}
+		\{{this}}<br />
+	\{{/each}}
+</script>
+
+<script>
+	//some js data to play with
+
+</script>
+
+<script>
+	//backbone land
+	var TestModel = Backbone.Model.extend({
+
+	});
+
+	var TestCollection = Backbone.Collection.extend({
+		model: TestModel,
+	});
+
+	var AppView = Backbone.View.extend({
+		el: '#my-app',
+		template: Handlebars.compile($('#test-template').html()),
+
+		initialize: function(options){
+
+		},
+		
+		render: function(){
+			this.$el.html(this.template({names:['Irwin','Rebecca']}));
+		}
+	});
+
+	var app = new AppView();
+	app.render();
+
+</script>

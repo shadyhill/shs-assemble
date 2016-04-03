@@ -1,0 +1,14 @@
+Options +FollowSymlinks -Indexes
+RewriteEngine on
+
+# TODO: Look into a better way to do this. JSON file maybe?
+
+RewriteRule ^$                          index.html [QSA,L]
+RewriteRule ^my_page/                   my_page.html [QSA,L]
+
+<files *.js>
+	SetOutputFilter DEFLATE
+</files>
+<files *.css>
+	SetOutputFilter DEFLATE
+</files>
